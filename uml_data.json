@@ -1,0 +1,21 @@
+{
+    "classes": [
+        {
+            "name": "person",
+            "attributes": [
+                {
+                    "name": "body"
+                }
+            ]
+        },
+        {
+            "name": "dog",
+            "attributes": []
+        },
+        {
+            "name": "askdjfalskdjfalksjflkdasjflkasjdflkajsdflkajsdflkjaslkdf",
+            "attributes": []
+        }
+    ],
+    "relationships": []
+}
