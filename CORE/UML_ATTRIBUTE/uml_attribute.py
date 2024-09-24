@@ -1,6 +1,6 @@
 """
-Author: Your Name
-Created: September 24, 2024
+Author: Israel Gonzalez
+Created: September 23, 2024
 
 Description:
     Manager for UML attributes, facilitating operations

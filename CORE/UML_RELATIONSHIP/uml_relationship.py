@@ -1,6 +1,6 @@
 """
-Author: Your Name
-Created: September 24, 2024
+Author: Israel Gonzalez
+Created: September 23, 2024
 
 Description:
     A module to manage relationships between UML classes.
