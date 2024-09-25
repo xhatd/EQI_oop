@@ -1,4 +1,5 @@
 import subprocess
+import platform
 
 help_text = """
 NAME
@@ -81,13 +82,41 @@ SEE ALSO
 """
 
 def show_help():
+    """Display the help text directly."""
     print(help_text)
 
 def show_manual():
+    """Display the manual with pagination depending on the platform."""
     # Create a header message
     header_message = "Press 'q' to exit manual.\n\n"
     # Combine the header with the help text
     manual_text = header_message + help_text
-    # Display the help text using a subprocess and pipe it to 'less' for pagination
-    with subprocess.Popen(['less'], stdin=subprocess.PIPE) as proc:
-        proc.communicate(input=manual_text.encode('utf-8'))
+
+    # Get the operating system
+    current_os = platform.system()
+
+    try:
+        # Check if the system is Linux or macOS
+        if current_os in ["Linux", "Darwin"]:
+            # Use 'less' for pagination
+            with subprocess.Popen(['less'], stdin=subprocess.PIPE) as proc:
+                proc.communicate(input=manual_text.encode('utf-8'))
+
+        # Check if the system is Windows
+        elif current_os == "Windows":
+            # Use 'more' for pagination
+            with subprocess.Popen(['more'], stdin=subprocess.PIPE, shell=True) as proc:
+                proc.communicate(input=manual_text.encode('utf-8'))
+
+        else:
+            # If the OS is not recognized, just print the help text
+            print(manual_text)
+
+    except Exception as e:
+        # In case of any errors, print the manual without pagination
+        print(f"Error displaying manual: {e}")
+        print(manual_text)
+
+# Usage example
+if __name__ == "__main__":
+    show_manual()

@@ -14,6 +14,7 @@ from UML_UTILS.save_load import save_data_to_json, load_data_from_json
 from UML_INTERFACE.help_text import show_help, show_manual
 from UML_MANAGER.uml_manager import UMLManager
 from CORE.UML_LISTING.uml_listing import UMLListing
+import subprocess
 
 class UMLInterface:
     def __init__(self):
