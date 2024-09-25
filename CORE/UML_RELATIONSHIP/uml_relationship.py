@@ -63,6 +63,18 @@ class RelationshipManager:
         print(f"\nClass '{class_name}' not found!")
         return False
 
+    def get_relationships(self):
+        """Retrieve all relationships."""
+        return self.relationship_list
+
+    def get_relationships_for_class(self, class_name: str):
+        """Retrieve all relationships for a given class."""
+        relationships_for_class = [
+            rel for rel in self.relationship_list 
+            if rel["class_a"] == class_name or rel["class_b"] == class_name
+        ]
+        return relationships_for_class
+
 # Usage example
 if __name__ == "__main__":
     class_manager = ClassManager()  # Create a ClassManager instance
