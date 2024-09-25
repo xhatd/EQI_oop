@@ -51,7 +51,7 @@ class UMLInterface:
             "classes": [
                 {
                     "name": cls["name"],
-                    "attributes": cls["attributes"]
+                    "attributes": cls["attributes"]  # Ensure attributes are included
                 }
                 for cls in self.manager.class_manager.get_classes()
             ],
@@ -59,12 +59,13 @@ class UMLInterface:
                 {
                     "source": rel["class_a"],
                     "destination": rel["class_b"],
-                    "type": rel["type"]
+                    "type": rel["relationship_type"]  # Use the updated keys
                 }
-                for rel in self.relationship_manager.get_relationships()  # Include relationships
+                for rel in self.relationship_manager.relationship_list  # Include relationships
             ]
         }
         save_data_to_json(uml_data, filename)
+
 
     def load_data(self, filename=None):
         """Load UML data from a JSON file with a user-specified filename if it exists."""
@@ -84,7 +85,7 @@ class UMLInterface:
 
             for rel in uml_data.get('relationships', []):
                 self.relationship_manager.add_relationship(
-                    rel["class_a"], rel["class_b"], rel["type"]
+                    rel["source"], rel["destination"], rel["type"]
                 )  # Load relationships
 
             print("Data loaded successfully.")

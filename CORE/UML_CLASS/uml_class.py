@@ -51,12 +51,9 @@ class ClassManager:
         for cls in classes:
             self.add_class(cls["name"])
             for attr in cls.get("attributes", []):
-                # Ensure this method exists in the AttributeManager
+                # Ensure this method exists in the AttributeManager to add attributes
                 pass  # Placeholder for adding attributes if necessary
 
 # Example usage (comment this out in production):
 if __name__ == "__main__":
     class_manager = ClassManager()
-    class_manager.add_class("Car")
-    class_manager.rename_class("Car", "Vehicle")
-    class_manager.delete_class("Vehicle")

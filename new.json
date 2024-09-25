@@ -1,10 +1,6 @@
 {
     "classes": [
         {
-            "name": "dog",
-            "attributes": []
-        },
-        {
             "name": "askdjfalskdjfalksjflkdasjflkasjdflkajsdflkajsdflkjaslkdf",
             "attributes": []
         },
@@ -15,6 +11,10 @@
                     "name": "body"
                 }
             ]
+        },
+        {
+            "name": "toby",
+            "attributes": []
         }
     ],
     "relationships": [

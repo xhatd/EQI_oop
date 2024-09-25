@@ -75,6 +75,23 @@ class RelationshipManager:
         ]
         return relationships_for_class
 
+    def rename_class(self, old_name: str, new_name: str) -> bool:
+        """Rename a class in all relationships."""
+        updated = False
+        for relationship in self.relationship_list:
+            if relationship["class_a"] == old_name:
+                relationship["class_a"] = new_name
+                updated = True
+            if relationship["class_b"] == old_name:
+                relationship["class_b"] = new_name
+                updated = True
+        
+        if updated:
+            print(f"\nClass '{old_name}' renamed to '{new_name}' in relationships.")
+        else:
+            print(f"\nClass '{old_name}' not found in relationships.")
+        return updated
+
 # Usage example
 if __name__ == "__main__":
     class_manager = ClassManager()  # Create a ClassManager instance
